@@ -34,6 +34,17 @@ function ngio_run() {
     $plugin->run();
 }
 ngio_run();
+/**
+ * Load plugin textdomain for translations.
+ */
+function ngio_load_textdomain() {
+    load_plugin_textdomain(
+        'nextgen-image-optimizer',
+        false,
+        dirname( plugin_basename( __FILE__ ) ) . '/languages/'
+    );
+}
+add_action( 'plugins_loaded', 'ngio_load_textdomain' );
 
 // Aktivasyon / de-aktivasyon hook'ları.
 register_activation_hook( __FILE__, array( 'NGIO_Core', 'activate' ) );

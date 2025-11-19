@@ -1,0 +1,631 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: NextGen Image Optimizer 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-19 00:00+0000\n"
+"PO-Revision-Date: 2025-11-19 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Turkish\n"
+"Language: tr_TR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: ChatGPT\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+# =============================================================================
+# GENEL / MENÜ / EKLENTİ METİNLERİ
+# =============================================================================
+
+msgid "NextGen Image Optimizer"
+msgstr "NextGen Görsel Optimizasyonu"
+
+msgid "NextGen Image Optimizer Settings"
+msgstr "NextGen Görsel Optimizasyon Ayarları"
+
+msgid "Settings"
+msgstr "Ayarlar"
+
+msgid "Save Changes"
+msgstr "Değişiklikleri Kaydet"
+
+msgid "Changes saved."
+msgstr "Değişiklikler kaydedildi."
+
+msgid "General"
+msgstr "Genel"
+
+msgid "Conversion"
+msgstr "Dönüştürme"
+
+msgid "Advanced"
+msgstr "Gelişmiş"
+
+msgid "Tools"
+msgstr "Araçlar"
+
+msgid "Status"
+msgstr "Durum"
+
+msgid "Enabled"
+msgstr "Etkin"
+
+msgid "Disabled"
+msgstr "Devre dışı"
+
+msgid "On"
+msgstr "Açık"
+
+msgid "Off"
+msgstr "Kapalı"
+
+# =============================================================================
+# ADMIN SAYFASI – HERO / ÜST BANT
+# (Bu başlık metinleri class-ngio-admin.php içinde kullanılıyor.)
+# =============================================================================
+
+msgid "Modern local image optimization for WordPress."
+msgstr "WordPress için modern, yerel görsel optimizasyonu."
+
+msgid "Convert your JPEG/PNG images to next-gen formats (WebP & AVIF) locally on your own server. No external API, no third-party servers."
+msgstr "JPEG/PNG görsellerinizi yeni nesil formatlara (WebP ve AVIF) tamamen kendi sunucunuzda dönüştürün. Harici API veya üçüncü taraf sunucu yok."
+
+msgid "Local conversion only"
+msgstr "Sadece yerel dönüştürme"
+
+msgid "No external API"
+msgstr "Harici API yok"
+
+msgid "Frontend <picture> support"
+msgstr "Önyüz <picture> desteği"
+
+msgid "GD extension"
+msgstr "GD eklentisi"
+
+msgid "Imagick extension"
+msgstr "Imagick eklentisi"
+
+msgid "WebP support"
+msgstr "WebP desteği"
+
+msgid "AVIF support"
+msgstr "AVIF desteği"
+
+msgid "Server OK"
+msgstr "Sunucu hazır"
+
+msgid "Some checks need your attention"
+msgstr "Bazı kontrollerin gözden geçirilmesi gerekiyor"
+
+msgid "View documentation"
+msgstr "Dokümantasyonu görüntüle"
+
+msgid "Run bulk optimization"
+msgstr "Toplu optimizasyonu çalıştır"
+
+# =============================================================================
+# AYARLAR – ANA KART / BLOKLAR
+# =============================================================================
+
+msgid "Configuration"
+msgstr "Yapılandırma"
+
+msgid "Main behavior and format configuration."
+msgstr "Ana davranış ve format yapılandırması."
+
+msgid "Conversion formats"
+msgstr "Dönüştürme formatları"
+
+msgid "Choose which next-gen formats should be generated."
+msgstr "Hangi yeni nesil formatların üretileceğini seçin."
+
+msgid "Enable WebP conversion"
+msgstr "WebP dönüştürmeyi etkinleştir"
+
+msgid "Generate WebP copies for supported images."
+msgstr "Desteklenen görseller için WebP kopyaları üret."
+
+msgid "Enable AVIF conversion"
+msgstr "AVIF dönüştürmeyi etkinleştir"
+
+msgid "Generate AVIF copies for supported images."
+msgstr "Desteklenen görseller için AVIF kopyaları üret."
+
+msgid "Frontend delivery"
+msgstr "Önyüz teslimi"
+
+msgid "How optimized images should be used on the frontend."
+msgstr "Optimize edilmiş görsellerin önyüzde nasıl kullanılacağını belirleyin."
+
+msgid "Rewrite <img> tags into <picture>"
+msgstr "<img> etiketlerini <picture> yapısına dönüştür"
+
+msgid "Automatically generate <picture> markup on the frontend to serve next-gen formats when supported."
+msgstr "Tarayıcı destekliyorsa önyüzde otomatik olarak <picture> yapısı üretip yeni nesil formatları sun."
+
+msgid "Fallback to original when unsupported"
+msgstr "Desteklenmediğinde orijinal görsele geri dön"
+
+msgid "Browsers without WebP/AVIF support will always receive the original image."
+msgstr "WebP/AVIF desteklemeyen tarayıcılara her zaman orijinal görsel gönderilir."
+
+msgid "On-upload optimization"
+msgstr "Yükleme sırasında optimizasyon"
+
+msgid "Automatically convert new uploads."
+msgstr "Yeni yüklenen görselleri otomatik olarak dönüştür."
+
+msgid "Optimize images on upload"
+msgstr "Yükleme sırasında görselleri optimize et"
+
+msgid "When enabled, every new JPEG/PNG upload gets a WebP/AVIF copy generated immediately."
+msgstr "Etkinleştirildiğinde, yüklenen her yeni JPEG/PNG için anında WebP/AVIF kopyası oluşturulur."
+
+msgid "Backup originals"
+msgstr "Orijinalleri yedekle"
+
+msgid "Keep a lossless backup of original files so you can safely change quality and re-run optimization."
+msgstr "Kalite ayarlarını güvenle değiştirebilmeniz için orijinal dosyaların kayıpsız yedeklerini saklar."
+
+# =============================================================================
+# AYARLAR – KALİTE / BOYUT
+# =============================================================================
+
+msgid "Quality & size"
+msgstr "Kalite ve boyut"
+
+msgid "Control the balance between visual quality and file size."
+msgstr "Görsel kalite ile dosya boyutu arasındaki dengeyi kontrol edin."
+
+msgid "WebP quality"
+msgstr "WebP kalitesi"
+
+msgid "AVIF quality"
+msgstr "AVIF kalitesi"
+
+msgid "Lower values mean smaller files but may introduce compression artifacts."
+msgstr "Daha düşük değerler daha küçük dosyalar anlamına gelir, ancak sıkıştırma izleri oluşabilir."
+
+msgid "Resize large images"
+msgstr "Büyük görselleri yeniden boyutlandır"
+
+msgid "Maximum width (px)"
+msgstr "Maksimum genişlik (px)"
+
+msgid "Maximum height (px)"
+msgstr "Maksimum yükseklik (px)"
+
+msgid "Images larger than this size will be resized before conversion."
+msgstr "Bu boyuttan daha büyük görseller, dönüştürme öncesi yeniden boyutlandırılır."
+
+# =============================================================================
+# AYARLAR – SUNUCU DURUMU / DESTEK
+# =============================================================================
+
+msgid "Server support"
+msgstr "Sunucu desteği"
+
+msgid "A quick overview of what your server can do."
+msgstr "Sunucunuzun neler yapabildiğine dair hızlı bir özet."
+
+msgid "Extension"
+msgstr "Eklenti"
+
+msgid "Capability"
+msgstr "Yetenek"
+
+msgid "Notes"
+msgstr "Notlar"
+
+msgid "WebP via GD"
+msgstr "GD ile WebP"
+
+msgid "WebP via Imagick"
+msgstr "Imagick ile WebP"
+
+msgid "AVIF via GD"
+msgstr "GD ile AVIF"
+
+msgid "AVIF via Imagick"
+msgstr "Imagick ile AVIF"
+
+msgid "Overall WebP support"
+msgstr "Genel WebP desteği"
+
+msgid "Overall AVIF support"
+msgstr "Genel AVIF desteği"
+
+msgid "Available"
+msgstr "Kullanılabilir"
+
+msgid "Not available"
+msgstr "Kullanılamıyor"
+
+msgid "Requires PHP GD extension compiled with WebP/AVIF support."
+msgstr "PHP GD eklentisinin WebP/AVIF desteği ile derlenmiş olmasını gerektirir."
+
+msgid "Requires Imagick extension with the proper codecs installed on the server."
+msgstr "Sunucuda uygun codec’lerle kurulu bir Imagick eklentisi gerektirir."
+
+# =============================================================================
+# AYARLAR – MEDYA ÖZETİ
+# =============================================================================
+
+msgid "Media overview"
+msgstr "Medya özeti"
+
+msgid "High-level stats about your media library."
+msgstr "Ortam kütüphanenize ait üst seviye istatistikler."
+
+msgid "Total media items"
+msgstr "Toplam medya öğesi"
+
+msgid "Already optimized"
+msgstr "Zaten optimize edilmiş"
+
+msgid "Estimated total saving"
+msgstr "Tahmini toplam kazanç"
+
+msgid "Next bulk pass will further reduce your total image weight."
+msgstr "Sonraki toplu geçiş, toplam görsel boyutunuzu daha da azaltacaktır."
+
+# =============================================================================
+# SUBMIT / ALT ŞERİT
+# =============================================================================
+
+msgid "Save settings"
+msgstr "Ayarları kaydet"
+
+msgid "Your changes will affect future conversions. Existing next-gen copies can be refreshed via the bulk optimizer."
+msgstr "Bu değişiklikler gelecekteki dönüştürmeleri etkileyecektir. Mevcut yeni nesil kopyalar, toplu optimizasyon ile yenilenebilir."
+
+# =============================================================================
+# BULK SAYFASI – MENÜ
+# =============================================================================
+
+msgid "Bulk Optimization (NGIO)"
+msgstr "Toplu Optimizasyon (NGIO)"
+
+msgid "Bulk Optimize (NGIO)"
+msgstr "Toplu Optimize Et"
+
+# =============================================================================
+# BULK SAYFASI – ÜST BANT / HEADER
+# =============================================================================
+
+msgid "Bulk Optimization"
+msgstr "Toplu Optimizasyon"
+
+msgid "Scan your media library, generate WebP/AVIF copies in batch and see exactly how much space you saved."
+msgstr "Ortam kütüphanenizi tarayın, toplu olarak WebP/AVIF kopyaları oluşturun ve tam olarak ne kadar alan kazandığınızı görün."
+
+msgid "Open Media Library"
+msgstr "Ortam Kütüphanesini Aç"
+
+# =============================================================================
+# BULK SAYFASI – GENEL BAKIŞ / DONUT
+# (Hem eski hem yeni overview versiyonundaki stringler eklenmiştir.)
+# =============================================================================
+
+msgid "Overview"
+msgstr "Genel Bakış"
+
+# Eski sürümdeki 3 istatistik:
+msgid "Original size"
+msgstr "Orijinal boyut"
+
+msgid "Optimized size"
+msgstr "Optimize edilmiş boyut"
+
+msgid "Space saved"
+msgstr "Tasarruf edilen alan"
+
+msgid "You have %1$s convertible images. %2$s of them already have next-gen versions."
+msgstr "Toplam %1$s dönüştürülebilir görseliniz var. Bunların %2$s tanesi için zaten yeni nesil sürümler oluşturulmuş."
+
+# Yeni sürümdeki 3 istatistik:
+msgid "Total convertible images"
+msgstr "Dönüştürülebilir toplam görsel"
+
+msgid "Optimized images"
+msgstr "Optimize edilmiş görsel"
+
+msgid "Excellent browser support and great compression for most websites."
+msgstr "Çoğu web sitesi için mükemmel tarayıcı desteği ve mükemmel sıkıştırma."
+
+msgid "Choose your output formats, automation rules and compression settings."
+msgstr "Çıktı formatlarınızı, otomasyon kurallarınızı ve sıkıştırma ayarlarınızı seçin."
+
+msgid "Even smaller files at similar quality, supported in modern browsers."
+msgstr "Benzer kalitede daha küçük dosyalar bile modern tarayıcılarda desteklenir."
+
+msgid "Automation & delivery"
+msgstr "Otomasyon ve teslimat"
+
+msgid "Quick snapshot of how your media library benefits from NGIO."
+msgstr "Medya kitaplığınızın NGIO'dan nasıl yararlandığına dair hızlı anlık görüntü."
+
+msgid "Convertible images"
+msgstr "Dönüştürülebilir görseller"
+
+msgid "Space saved (sample)"
+msgstr "Kazanılan alan (örnek)"
+
+msgid "Advanced rules"
+msgstr "Gelişmiş kurallar"
+
+msgid "Enable the formats you want to generate from JPEG/PNG uploads."
+msgstr "JPEG/PNG yüklemelerinden oluşturmak istediğiniz formatları etkinleştirin."
+
+msgid "Output formats"
+msgstr "Çıkış formatları"
+
+msgid "Go to Media Library"
+msgstr "Medya Kitaplığı'na gidin"
+
+msgid "Open bulk optimizer"
+msgstr "Toplu optimize ediciyi aç"
+
+msgid "on upload & in bulk"
+msgstr "Yüklemede ve toplu olarak"
+
+msgid "Auto optimize"
+msgstr "Otomatik optimizasyon"
+
+msgid "Re-optimize"
+msgstr "Yeniden optimize et"
+
+msgid "Restore original"
+msgstr "Orijinali geri yükle"
+
+msgid "%d%% (sampled)"
+msgstr "%d%% (örnek)"
+
+msgid "Resize next-gen copies"
+msgstr "Yeniden boyutlandır"
+
+msgid "Example: 2048px keeps hero images sharp while avoiding super heavy files."
+msgstr "Örnek:2048 piksel, ağırlıktan kaçınırken görüntülerin keskin kalmasını sağlar."
+
+msgid "Strip metadata on convert"
+msgstr "Dönüştürme sırasında meta verileri soyun"
+
+msgid "Convert your JPEG and PNG uploads to modern WebP/AVIF, automatically serve them on the frontend and track how much weight you save."
+msgstr "JPEG ve PNG yüklemelerinizi modern WebP/AVIF'e dönüştürün, bunları ön uçta otomatik olarak sunun ve ne kadar ağırlıktan tasarruf ettiğinizi takip edin."
+
+msgid "When enabled, images matching any of the patterns below will be skipped during optimization."
+msgstr "Etkinleştirildiğinde, aşağıdaki modellerden herhangi biriyle eşleşen resimler optimizasyon sırasında atlanacaktır."
+
+msgid "Exclusion patterns (one per line)"
+msgstr "Hariç tutma modelleri (satır başına bir tane)"
+
+msgid "Any image whose path or filename contains one of these strings will be ignored. Example: logo, avatar-, /icons/, /uploads/2020/"
+msgstr "Yolu veya dosya adı bu dizelerden birini içeren resimler dikkate alınmayacaktır. Örnek: logo, avatar-, /icons/, /uploads/2020/"
+
+msgid "After changing quality or resize, you can re-run the bulk optimizer to refresh existing images."
+msgstr "Kaliteyi değiştirdikten veya yeniden boyutlandırdıktan sonra, mevcut görüntüleri yenilemek için toplu optimize ediciyi yeniden çalıştırabilirsiniz."
+
+msgid "Apply exclusion patterns"
+msgstr "Hariç tutma kalıplarını uygula"
+
+msgid "Exclude specific images from being converted based on their filenames or paths."
+msgstr "Belirli görsellerin dosya adlarına veya yollarına göre dönüştürülmesini engelleyin."
+
+msgid "Enable exclusion rules"
+msgstr "Hariç tutma kurallarını etkinleştir"
+
+msgid "Control when optimization runs and how next-gen formats are used on the frontend."
+msgstr "Optimizasyonun ne zaman çalıştığını ve ön uçta yeni nesil formatların nasıl kullanıldığını kontrol edin."
+
+msgid "Optimize on upload"
+msgstr "Yükleme sırasında optimize edin"
+
+msgid "Automatically generate WebP/AVIF versions when new images are uploaded."
+msgstr "Yeni görseller yüklendiğinde WebP/AVIF sürümlerini otomatik olarak oluşturun."
+
+msgid "Serve via &lt;picture&gt;"
+msgstr "&lt;picture&gt; aracılığıyla servis yapın"
+
+msgid "Wrap images in &lt;picture&gt; with WebP/AVIF sources on the frontend."
+msgstr "Ön uçtaki WebP/AVIF kaynaklarıyla görüntüleri &lt;picture&gt; içine sarın."
+
+msgid "Detection of GD/Imagick capabilities for WebP and AVIF."
+msgstr "WebP ve AVIF için GD/Imagick yeteneklerinin tespiti."
+
+msgid "Generate WebP versions"
+msgstr "WebP sürümleri oluşturun"
+
+msgid "Enable picture/srcset integration"
+msgstr "Resim entegrasyonu etkinleştir"
+
+msgid "Generate AVIF versions"
+msgstr "AVIF sürümleri oluşturun"
+
+msgid "Compression & resizing"
+msgstr "Sıkıştırma ve yeniden boyutlandırma"
+
+msgid "Fine-tune the balance between visual quality and file size."
+msgstr "Görsel kalite ile dosya boyutu arasındaki dengeye ince ayar yapın."
+
+msgid "Quality level (0–100)"
+msgstr "Kaliye seviyesi (0–100)"
+
+msgid "Images to optimize"
+msgstr "Optimize edilecek görsel"
+
+msgid "Higher values mean better visual quality but larger files. 80–85 works great for most sites."
+msgstr "Daha yüksek değerler daha iyi görsel kalite ancak daha büyük dosyalar anlamına gelir. 80-85 çoğu site için harika çalışıyor."
+
+msgid "Recommended range: 75–90. For photography-heavy sites stay slightly higher, for UI-heavy sites you can go lower."
+msgstr "Önerilen aralık: 75–90. Fotoğraf ağırlıklı siteler için biraz daha yüksekte kalın, kullanıcı arayüzü ağırlıklı siteler için ise daha aşağıya inebilirsiniz."
+
+msgid "Automatically downscale next-gen copies when the original width is higher than the value below."
+msgstr "Orijinal genişlik aşağıdaki değerden yüksek olduğunda yeni nesil kopyaların ölçeğini otomatik olarak küçültün."
+
+msgid "Remove camera EXIF/IPTC data from next-gen copies for smaller files. Originals remain untouched."
+msgstr "Daha küçük dosyalar için kamera EXIF/IPTC verilerini yeni nesil kopyalardan kaldırın. Orijinallere dokunulmaz."
+
+msgid "You've already saved %1$s (%2$d%% of %3$s) across optimized images."
+msgstr "Optimize edilmiş görsellerde toplam %3$s üzerinden %2$d%% oranında, yani %1$s alan tasarrufu sağladınız."
+
+# =============================================================================
+# BULK SAYFASI – İPUÇLARI
+# =============================================================================
+
+msgid "Tips"
+msgstr "İpuçları"
+
+msgid "Run the bulk optimizer after importing a large batch of photos or a new theme demo."
+msgstr "Büyük bir fotoğraf grubu veya yeni bir tema demosu içe aktardıktan sonra toplu optimizasyonu çalıştırın."
+
+msgid "Keep “Optimize on upload” enabled so new uploads are always covered."
+msgstr "\"Yükleme sırasında optimize et\" seçeneğini açık tutarak yeni yüklenen görsellerin de otomatik optimize edilmesini sağlayın."
+
+msgid "If you change the quality or resize settings, run a new bulk pass to refresh existing copies."
+msgstr "Kalite veya yeniden boyutlandırma ayarlarını değiştirdiğinizde, mevcut kopyaları güncellemek için yeniden toplu optimizasyon çalıştırın."
+
+# =============================================================================
+# BULK SAYFASI – ANA KART VE BUTON
+# =============================================================================
+
+msgid "Optimize your media files"
+msgstr "Ortam dosyalarınızı optimize edin"
+
+msgid "Click the button below to start scanning your media library and generating missing WebP/AVIF versions. You can safely navigate away; the process runs in small batches."
+msgstr "Aşağıdaki butona tıklayarak ortam kütüphanenizin taranmasını ve eksik WebP/AVIF sürümlerinin üretilmesini başlatın. İşlem küçük partiler halinde çalışır; sayfadan güvenle ayrılabilirsiniz."
+
+msgid "Optimize all images"
+msgstr "Tüm görselleri optimize et"
+
+msgid "You are not allowed to run bulk optimization."
+msgstr "Toplu optimizasyon çalıştırma yetkiniz yok."
+
+# =============================================================================
+# BULK – JS / AJAX METİNLERİ (wp_localize_script İLE)
+# =============================================================================
+
+msgid "Processed %processed% of %total% images (%percent%% of this run)."
+msgstr "%total% görselin %processed% tanesi işlendi (bu turda %percent%%)."
+
+msgid "Starting bulk optimization…"
+msgstr "Toplu optimizasyon başlatılıyor…"
+
+msgid "Bulk optimization finished."
+msgstr "Toplu optimizasyon tamamlandı."
+
+msgid "An error occurred during the bulk optimization."
+msgstr "Toplu optimizasyon sırasında bir hata oluştu."
+
+msgid "Run again"
+msgstr "Tekrar çalıştır"
+
+# =============================================================================
+# MEDYA KÜTÜPHANESİ SÜTUNU / LİSTE GÖRÜNÜMÜ
+# =============================================================================
+
+msgid "NextGen"
+msgstr "NextGen"
+
+msgid "Not optimized yet"
+msgstr "Henüz optimize edilmedi"
+
+msgid "Optimized"
+msgstr "Optimize edildi"
+
+msgid "Next-gen size"
+msgstr "Yeni nesil boyut"
+
+msgid "Original size:"
+msgstr "Orijinal boyut:"
+
+msgid "Next-gen size:"
+msgstr "Yeni nesil boyut:"
+
+msgid "Space saved:"
+msgstr "Tasarruf edilen alan:"
+
+msgid "Re-optimize now"
+msgstr "Şimdi yeniden optimize et"
+
+msgid "View details"
+msgstr "Detayları görüntüle"
+
+msgid "Hide details"
+msgstr "Detayları gizle"
+
+msgid "Last optimized"
+msgstr "Son optimize tarihi"
+
+msgid "Never"
+msgstr "Hiç"
+
+msgid "Optimization error"
+msgstr "Optimizasyon hatası"
+
+msgid "Unknown"
+msgstr "Bilinmiyor"
+
+# =============================================================================
+# TEKİL EKLER (ATTACHMENT) – METABOX / AYARLAR
+# =============================================================================
+
+msgid "NextGen optimization"
+msgstr "NextGen optimizasyonu"
+
+msgid "Optimize this image now"
+msgstr "Bu görseli şimdi optimize et"
+
+msgid "Rebuild next-gen formats"
+msgstr "Yeni nesil formatları yeniden oluştur"
+
+msgid "This image has already been optimized."
+msgstr "Bu görsel zaten optimize edildi."
+
+msgid "Automatic optimization on upload"
+msgstr "Yükleme sırasında otomatik optimizasyon"
+
+msgid "Override global setting for this image."
+msgstr "Bu görsel için genel ayarı geçersiz kıl."
+
+# =============================================================================
+# DİĞER / YARDIMCI METİNLER
+# =============================================================================
+
+msgid "Learn more"
+msgstr "Daha fazla bilgi"
+
+msgid "Documentation"
+msgstr "Dokümantasyon"
+
+msgid "Support"
+msgstr "Destek"
+
+msgid "Logs"
+msgstr "Loglar"
+
+msgid "Clear logs"
+msgstr "Logları temizle"
+
+msgid "Conversion engine"
+msgstr "Dönüştürme motoru"
+
+msgid "Preferred engine"
+msgstr "Tercih edilen motor"
+
+msgid "GD only"
+msgstr "Sadece GD"
+
+msgid "Imagick only"
+msgstr "Sadece Imagick"
+
+msgid "Auto-detect"
+msgstr "Otomatik algıla"
+
+msgid "Fallback chain"
+msgstr "Yedekleme zinciri"
+
+msgid "Try Imagick first, then GD."
+msgstr "Önce Imagick, sonra GD denenir."
+
+msgid "Try GD first, then Imagick."
+msgstr "Önce GD, sonra Imagick denenir."
