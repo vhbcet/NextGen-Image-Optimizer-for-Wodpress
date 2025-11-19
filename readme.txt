@@ -1,15 +1,15 @@
 ![NextGen Image Optimizer banner](assets/banner-772x250.png)
 
 === NextGen Image Optimizer ===
-Contributors: hedefhosting  
-Donate link: https://hedefhosting.com.tr/  
-Tags: image optimization, webp, avif, performance, images, responsive images  
-Requires at least: 6.5  
-Tested up to: 6.7  
-Requires PHP: 8.1  
-Stable tag: 0.1.0  
-License: GPLv2 or later  
-License URI: https://www.gnu.org/licenses/gpl-2.0.html  
+Contributors: hedefhosting
+Donate link: https://hedefhosting.com.tr/
+Tags: image optimization, webp, avif, performance, images, responsive images
+Requires at least: 6.5
+Tested up to: 6.7
+Requires PHP: 8.1
+Stable tag: 0.1.0
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Convert JPEG and PNG images to modern WebP and AVIF formats on upload or in bulk, and optionally serve them using `<picture>` tags – with everything processed locally on your own server.
 
@@ -21,8 +21,7 @@ Convert JPEG and PNG images to modern WebP and AVIF formats on upload or in bulk
 
 All conversions happen **locally on your server** using GD and/or Imagick – there is **no external API**, no remote storage and no extra monthly bills.
 
-The plugin is developed and maintained by **[Hedef Hosting](https://hedefhosting.com.tr/)** and is provided completely free of charge.  
-If you have ideas, bug reports or feature requests, feel free to email us at **support@hedefhosting.com.tr** 💌
+The plugin is developed and maintained by **[Hedef Hosting](https://hedefhosting.com.tr/)** and is provided completely free of charge. If you have ideas, bug reports or feature requests, feel free to email us at **support@hedefhosting.com.tr** 💌
 
 It focuses on three main goals:
 
@@ -86,8 +85,7 @@ If your server is missing some of these, the **Server support** box on the setti
 
 ## Installation
 
-1. Upload the `nextgen-image-optimizer` folder to the `/wp-content/plugins/` directory,  
-   or install it via the WordPress.org plugin repository (when available).
+1. Upload the `nextgen-image-optimizer` folder to the `/wp-content/plugins/` directory, or install it via the WordPress.org plugin repository (when available).
 2. Activate the plugin through the **Plugins** menu in WordPress.
 3. Go to **Settings → Image Optimizer** to configure:
    * Which formats to generate (WebP, AVIF, or both).
@@ -146,21 +144,18 @@ In the **attachment edit screen**:
 
 ### Does this plugin modify my original image files?
 
-By default the plugin keeps your original JPEG/PNG files untouched and creates additional `.webp` and `.avif` versions in the same upload folder.  
-If you enable “backup originals” in future versions, restoring will become even easier.
+By default the plugin keeps your original JPEG/PNG files untouched and creates additional `.webp` and `.avif` versions in the same upload folder. If you enable “backup originals” in future versions, restoring will become even easier.
 
 ### Will it work if my server does not support WebP or AVIF?
 
-If your server cannot generate WebP and/or AVIF, the plugin will show this in the **Server support** section on the settings page.  
-In that case:
+If your server cannot generate WebP and/or AVIF, the plugin will show this in the **Server support** section on the settings page. In that case:
 
-* Only the supported formats will be generated, or  
+* Only the supported formats will be generated, or
 * If neither WebP nor AVIF is available, conversion is skipped while your originals remain untouched.
 
 ### How does the `<picture>` option affect my theme?
 
-When enabled, the plugin wraps images output by `wp_get_attachment_image()` and featured images in a `<picture>` tag, adding `<source>` elements for WebP and AVIF.  
-The original `<img>` tag remains inside, so themes usually continue to work as expected. If a browser doesn’t support WebP/AVIF, it simply loads the original image.
+When enabled, the plugin wraps images output by `wp_get_attachment_image()` and featured images in a `<picture>` tag, adding `<source>` elements for WebP and AVIF. The original `<img>` tag remains inside, so themes usually continue to work as expected. If a browser doesn’t support WebP/AVIF, it simply loads the original image.
 
 ### Can I disable optimization for specific images?
 
@@ -171,8 +166,7 @@ Yes. You can:
 
 ### Can I remove the generated files if I uninstall the plugin?
 
-By default, uninstalling the plugin removes only its **settings**. The generated image files remain in the uploads directory.  
-This is intentional to avoid breaking existing content. You can remove them manually (or via a dedicated cleanup tool) if needed.
+By default, uninstalling the plugin removes only its **settings**. The generated image files remain in the uploads directory. This is intentional to avoid breaking existing content. You can remove them manually (or via a dedicated cleanup tool) if needed.
 
 ### Does the plugin send any data to external services?
 
@@ -182,8 +176,8 @@ No. All conversions happen locally on your server. The plugin does **not** send 
 
 ## Screenshots
 
-1. **Settings page** – main configuration, conversion formats, automation, quality and server support.  
-2. **Bulk optimization screen** – progress bar, global overview donut and per-image log.  
+1. **Settings page** – main configuration, conversion formats, automation, quality and server support.
+2. **Bulk optimization screen** – progress bar, global overview donut and per-image log.
 3. **Media Library NextGen column** – per-image status, savings, and quick actions.
 
 ---
@@ -210,5 +204,4 @@ No. All conversions happen locally on your server. The plugin does **not** send 
 
 ### 0.1.0
 
-Initial release of NextGen Image Optimizer.  
-Configure your formats and quality, then run the bulk optimizer once to convert your existing Media Library.
+Initial release of NextGen Image Optimizer. Configure your formats and quality, then run the bulk optimizer once to convert your existing Media Library.
