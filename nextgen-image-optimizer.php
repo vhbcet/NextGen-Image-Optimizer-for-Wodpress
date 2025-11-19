@@ -1,7 +1,6 @@
 <?php
 /**
  * Plugin Name: NextGen Image Optimizer
- * Plugin URI:  https://hedefhosting.com.tr/
  * Description: Convert JPEG and PNG images to modern WebP and AVIF formats on upload or in bulk, and optionally serve them using <picture> tags. 100% local – no external API.
  * Author:      Hedef Hosting
  * Author URI:  https://hedefhosting.com.tr/
