@@ -198,6 +198,12 @@ No. All conversions happen locally on your server. The plugin does **not** send 
 * Server support checker for GD / Imagick WebP and AVIF capabilities.
 * Optional `<picture>` / `srcset` integration on the frontend.
 * Quality, resize and metadata stripping controls.
+
+---
+
+## License
+
+NextGen Image Optimizer is free software released under the **GNU General Public License v2.0 or later**. You can redistribute it and/or modify it under the terms of the GPL as published by the Free Software Foundation. See [https://www.gnu.org/licenses/gpl-2.0.html](https://www.gnu.org/licenses/gpl-2.0.html) for the full license text.
 * Exclusion patterns for filenames/paths.
 * Media Library “NextGen” column with per-image stats and actions.
 * Per-attachment metabox for manual optimization.
