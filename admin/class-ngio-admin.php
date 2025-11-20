@@ -717,6 +717,24 @@ function ngio_get_server_capabilities() {
                                     </tbody>
                                 </table>
                             </div>
+                            <p class="description">
+                                <?php
+                                echo wp_kses(
+                                    sprintf(
+                                        /* translators: %s: Hedef Hosting URL */
+                                        __( 'If Imagick shows as unavailable in the server support table, you need to install the Imagick PHP extension on your server. <a href="%s" target="_blank" rel="noopener noreferrer">Hedef Hosting</a> servers support Imagick, so enabling it should be straightforward.', 'nextgen-image-optimizer' ),
+                                        esc_url( 'https://hedefhosting.com.tr' )
+                                    ),
+                                    array(
+                                        'a' => array(
+                                            'href'   => array(),
+                                            'target' => array(),
+                                            'rel'    => array(),
+                                        ),
+                                    )
+                                );
+                                ?>
+                            </p>
                         </div>
                     </section>
 
