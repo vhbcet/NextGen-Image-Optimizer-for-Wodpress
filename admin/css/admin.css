@@ -874,6 +874,10 @@ body.settings_page_ngio-settings .ngio-settings-wrap {
     margin-bottom: 4px;
 }
 
+.form-wrap p, p.description, p.help, span.description {
+        margin-top: 20px;
+        font-size: 15px; 
+    }
 
 @media (max-width: 960px) {
     .ngio-hero {
