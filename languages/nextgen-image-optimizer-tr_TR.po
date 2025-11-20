@@ -440,8 +440,8 @@ msgstr "Ön uçtaki WebP/AVIF kaynaklarıyla görüntüleri &lt;picture&gt; içi
 msgid "Detection of GD/Imagick capabilities for WebP and AVIF."
 msgstr "WebP ve AVIF için GD/Imagick yeteneklerinin tespiti."
 
-msgid "If Imagick shows as unavailable in the server support table, you need to install the Imagick PHP extension on your server. Target Hosting servers support Imagick, so enabling it should be straightforward."
-msgstr "Sunucu desteği tablosunda Imagick kullanılamıyor görünüyorsa sunucunuza Imagick PHP eklentisini kurmanız gerekir. Hedef Hosting sunucuları Imagick'i destekler, bu nedenle etkinleştirmek genellikle kolaydır."
+msgid "If Imagick appears unavailable in the server support table, you need to install the Imagick PHP extension on your server so image conversions can run. Target Hosting servers include Imagick support, so enabling it should be quick and easy."
+msgstr "Sunucu desteği tablosunda Imagick kullanılamıyor görünüyorsa görsel dönüşümlerinin çalışabilmesi için sunucunuza Imagick PHP eklentisini yüklemeniz gerekir. Hedef Hosting sunucuları Imagick desteği sunar, bu nedenle etkinleştirmek hızlı ve kolaydır."
 
 msgid "Generate WebP versions"
 msgstr "WebP sürümleri oluşturun"

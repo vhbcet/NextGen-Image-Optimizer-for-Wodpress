@@ -718,7 +718,7 @@ function ngio_get_server_capabilities() {
                                 </table>
                             </div>
                             <p class="description">
-                                <?php esc_html_e( 'If Imagick shows as unavailable in the server support table, you need to install the Imagick PHP extension on your server. Target Hosting servers support Imagick, so enabling it should be straightforward.', 'nextgen-image-optimizer' ); ?>
+                                <?php esc_html_e( 'If Imagick appears unavailable in the server support table, you need to install the Imagick PHP extension on your server so image conversions can run. Target Hosting servers include Imagick support, so enabling it should be quick and easy.', 'nextgen-image-optimizer' ); ?>
                             </p>
                         </div>
                     </section>
