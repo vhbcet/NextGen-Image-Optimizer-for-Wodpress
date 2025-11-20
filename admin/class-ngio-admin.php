@@ -3,34 +3,20 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-/**
- * Admin UI and settings for NextGen Image Optimizer.
- */
 class NGIO_Admin {
 
-    /**
-     * Option name used to store settings.
-     *
-     * @var string
-     */
     protected $option_name = 'ngio_settings';
 
-    /**
-     * Constructor.
-     */
     public function __construct() {
         add_action( 'admin_menu', array( $this, 'add_settings_page' ) );
         add_action( 'admin_init', array( $this, 'register_settings' ) );
         add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_assets' ) );
 
-        // Attachment edit screen: single-image optimize box.
         add_action( 'attachment_submitbox_misc_actions', array( $this, 'render_single_optimize_box' ) );
 
-        // AJAX: single attachment re-optimization + restore.
         add_action( 'wp_ajax_ngio_optimize_single', array( $this, 'ajax_optimize_single' ) );
         add_action( 'wp_ajax_ngio_restore_single', array( $this, 'ajax_restore_single' ) );
 
-        // Media Library list: NextGen column.
         add_filter( 'manage_upload_columns', array( $this, 'add_media_column' ) );
         add_action( 'manage_media_custom_column', array( $this, 'render_media_column' ), 10, 2 );
     }
@@ -52,11 +38,6 @@ function ngio_get_server_capabilities() {
     );
 }
 
-    /**
-     * Default settings.
-     *
-     * @return array
-     */
     public function get_default_settings() {
         return array(
             'enable_webp'              => 1,
@@ -72,11 +53,6 @@ function ngio_get_server_capabilities() {
         );
     }
 
-    /**
-     * Get merged settings (saved + defaults).
-     *
-     * @return array
-     */
     public function get_settings() {
         $defaults = $this->get_default_settings();
         $saved    = get_option( $this->option_name, array() );
@@ -87,7 +63,6 @@ function ngio_get_server_capabilities() {
 
         $settings = wp_parse_args( $saved, $defaults );
 
-        // Normalize ranges/types.
         $settings['quality']          = max( 0, min( 100, (int) $settings['quality'] ) );
         $settings['resize_max_width'] = max( 320, min( 8000, (int) $settings['resize_max_width'] ) );
 
@@ -103,9 +78,6 @@ function ngio_get_server_capabilities() {
         return $settings;
     }
 
-    /**
-     * Register settings with WordPress.
-     */
     public function register_settings() {
         register_setting(
             'ngio_settings_group',
@@ -114,12 +86,6 @@ function ngio_get_server_capabilities() {
         );
     }
 
-    /**
-     * Sanitize & validate settings before saving.
-     *
-     * @param array $input Raw input from form.
-     * @return array
-     */
     public function sanitize_settings( $input ) {
         $defaults = $this->get_default_settings();
         $output   = array();
@@ -137,7 +103,6 @@ function ngio_get_server_capabilities() {
         }
         $output['quality'] = $quality;
 
-        // Resize.
         $output['resize_enabled'] = isset( $input['resize_enabled'] ) ? 1 : 0;
 
         $resize_max = isset( $input['resize_max_width'] ) ? intval( $input['resize_max_width'] ) : $defaults['resize_max_width'];
@@ -148,10 +113,8 @@ function ngio_get_server_capabilities() {
         }
         $output['resize_max_width'] = $resize_max;
 
-        // Metadata.
         $output['strip_metadata'] = isset( $input['strip_metadata'] ) ? 1 : 0;
 
-        // Exclude rules.
         $output['exclude_patterns_enabled'] = isset( $input['exclude_patterns_enabled'] ) ? 1 : 0;
 
         if ( isset( $input['exclude_patterns'] ) ) {
@@ -169,9 +132,6 @@ function ngio_get_server_capabilities() {
         return $output;
     }
 
-    /**
-     * Add settings page.
-     */
     public function add_settings_page() {
         add_options_page(
             __( 'NextGen Image Optimizer', 'nextgen-image-optimizer' ),
@@ -182,14 +142,8 @@ function ngio_get_server_capabilities() {
         );
     }
 
-    /**
-     * Enqueue admin CSS/JS.
-     *
-     * @param string $hook_suffix Current page hook.
-     */
     public function enqueue_assets( $hook_suffix ) {
 
-        // 1) Settings page.
         if ( 'settings_page_ngio-settings' === $hook_suffix ) {
 
             wp_enqueue_style(
@@ -210,7 +164,6 @@ function ngio_get_server_capabilities() {
             return;
         }
 
-        // 2) Attachment edit screen.
         if ( 'post.php' === $hook_suffix ) {
             $screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
 
@@ -245,7 +198,6 @@ function ngio_get_server_capabilities() {
             }
         }
 
-        // 3) Media Library list screen.
         if ( 'upload.php' === $hook_suffix ) {
 
             wp_enqueue_style(
@@ -281,13 +233,6 @@ function ngio_get_server_capabilities() {
         }
     }
 
-    /**
-     * Render pretty toggle switch.
-     *
-     * @param string $field Field name inside option array.
-     * @param int    $value Current value (0/1).
-     * @param string $label Label text.
-     */
     public function render_toggle( $field, $value, $label ) {
         $field_id   = 'ngio_' . $field;
         $is_checked = ! empty( $value );
@@ -305,11 +250,6 @@ function ngio_get_server_capabilities() {
         <?php
     }
 
-    /**
-     * Get simple media overview stats for the settings sidebar.
-     *
-     * @return array
-     */
     protected function get_media_overview() {
         $stats = array(
             'total_images'     => 0,
@@ -323,7 +263,6 @@ function ngio_get_server_capabilities() {
             'saved_human'      => '0 B',
         );
 
-        // Total convertible images.
         if ( function_exists( 'wp_count_attachments' ) ) {
             $counts = wp_count_attachments();
 
@@ -340,7 +279,6 @@ function ngio_get_server_capabilities() {
             $stats['total_images'] = $jpeg + $png;
         }
 
-        // Sample up to 50 attachments with ngio meta.
         $query = new WP_Query(
             array(
                 'post_type'              => 'attachment',
@@ -391,9 +329,6 @@ function ngio_get_server_capabilities() {
         return $stats;
     }
 
-    /**
-     * Render settings page.
-     */
     public function render_settings_page() {
         if ( ! current_user_can( 'manage_options' ) ) {
             return;
@@ -401,7 +336,6 @@ function ngio_get_server_capabilities() {
 
         $settings = $this->get_settings();
 
-        // Server capabilities (GD / Imagick, WebP / AVIF).
         $caps = array(
             'webp_gd'      => false,
             'webp_imagick' => false,
@@ -439,7 +373,6 @@ function ngio_get_server_capabilities() {
                                 <span>
                                     <?php
                                     printf(
-                                        /* translators: %d: percent saved */
                                         esc_html__( '%d%% (sampled)', 'nextgen-image-optimizer' ),
                                         (int) $media_overview['saving_percent']
                                     );
@@ -449,7 +382,6 @@ function ngio_get_server_capabilities() {
                         </div><p class="ngio-hero-madeby">
     <?php
     printf(
-        /* translators: 1: Hedef Hosting link HTML */
         __( 'This plugin is built by %1$s and offered completely free. If you spot something missing or have ideas to improve it, feel free to email us at support@hedefhosting.com.tr', 'nextgen-image-optimizer' ),
         '<a href="https://hedefhosting.com.tr/" target="_blank" rel="noopener noreferrer">Hedef Hosting</a>'
     );
@@ -840,11 +772,6 @@ function ngio_get_server_capabilities() {
         <?php
     }
 
-    /**
-     * Render capability badge.
-     *
-     * @param bool $available Capability flag.
-     */
     protected function render_cap_badge( $available ) {
         if ( $available ) {
             ?>
@@ -861,11 +788,6 @@ function ngio_get_server_capabilities() {
         }
     }
 
-    /**
-     * Attachment edit: single-image "re-optimize" box.
-     *
-     * @param WP_Post $post Attachment post.
-     */
     public function render_single_optimize_box( $post ) {
         if ( ! $post instanceof WP_Post ) {
             return;
@@ -900,9 +822,6 @@ function ngio_get_server_capabilities() {
         <?php
     }
 
-    /**
-     * AJAX: Re-optimize a single attachment.
-     */
     public function ajax_optimize_single() {
         check_ajax_referer( 'ngio_optimize_single', 'nonce' );
 
@@ -959,7 +878,6 @@ function ngio_get_server_capabilities() {
             wp_update_attachment_metadata( $attachment_id, $new_meta );
         }
 
-        // Calculate fresh stats to update Media Library column UI.
         $meta_after = wp_get_attachment_metadata( $attachment_id );
         $stats      = array(
             'new_filesize'   => '',
@@ -986,9 +904,6 @@ function ngio_get_server_capabilities() {
         );
     }
 
-    /**
-     * AJAX: Restore original – remove WebP/AVIF copies & NGIO meta.
-     */
     public function ajax_restore_single() {
         check_ajax_referer( 'ngio_optimize_single', 'nonce' );
 
@@ -1019,11 +934,9 @@ function ngio_get_server_capabilities() {
             );
         }
 
-        // Eğer Converter kendi temizleme metoduna sahipse onu kullan.
         if ( class_exists( 'NGIO_Converter' ) && method_exists( 'NGIO_Converter', 'remove_for_attachment' ) ) {
             NGIO_Converter::remove_for_attachment( $attachment_id );
         } else {
-            // Fallback: orijinal dosyanın yanındaki .webp / .avif dosyalarını sil.
             $file = get_attached_file( $attachment_id );
             if ( $file && file_exists( $file ) ) {
                 $info = pathinfo( $file );
@@ -1037,14 +950,13 @@ function ngio_get_server_capabilities() {
                 foreach ( $patterns as $pattern ) {
                     foreach ( glob( $pattern ) as $candidate ) {
                         if ( is_file( $candidate ) ) {
-                            @unlink( $candidate ); // phpcs:ignore WordPress.PHP.NoSilencedErrors
+                            @unlink( $candidate );
                         }
                     }
                 }
             }
         }
 
-        // NGIO meta bilgisini kaldır.
         $meta = wp_get_attachment_metadata( $attachment_id );
         if ( ! empty( $meta ) && is_array( $meta ) && isset( $meta['ngio'] ) ) {
             unset( $meta['ngio'] );
@@ -1058,12 +970,6 @@ function ngio_get_server_capabilities() {
         );
     }
 
-    /**
-     * Media Library: add "NextGen" column.
-     *
-     * @param array $columns Existing columns.
-     * @return array
-     */
     public function add_media_column( $columns ) {
         $new = array();
 
@@ -1082,12 +988,6 @@ function ngio_get_server_capabilities() {
         return $new;
     }
 
-    /**
-     * Media Library: render content for "NextGen" column.
-     *
-     * @param string $column_name Column slug.
-     * @param int    $post_id     Attachment ID.
-     */
     public function render_media_column( $column_name, $post_id ) {
         if ( 'ngio' !== $column_name ) {
             return;
@@ -1107,7 +1007,6 @@ function ngio_get_server_capabilities() {
         $settings = $this->get_settings();
         $quality  = isset( $settings['quality'] ) ? (int) $settings['quality'] : 82;
 
-        // Kalite profilini kabaca Imagify tarzı isimlendirelim.
         if ( $quality >= 95 ) {
             $profile_label = __( 'Lossless', 'nextgen-image-optimizer' );
         } elseif ( $quality <= 70 ) {
@@ -1145,13 +1044,11 @@ function ngio_get_server_capabilities() {
             $saved_label = sprintf( '%d%%', (int) round( $saved_pct ) );
         }
 
-        // Thumbnail sayısı.
         $thumb_count = 0;
         if ( ! empty( $meta['sizes'] ) && is_array( $meta['sizes'] ) ) {
             $thumb_count = count( $meta['sizes'] );
         }
 
-        // Hangi next-gen formatlar üretilmiş?
         $formats       = array();
         $original_path = get_attached_file( $post_id );
         if ( $original_path ) {
@@ -1171,7 +1068,6 @@ function ngio_get_server_capabilities() {
 
         if ( $optimized && $formats ) {
             $nextgen_status = sprintf(
-                /* translators: %s: formats list, e.g. "WebP, AVIF" */
                 __( 'Yes (%s)', 'nextgen-image-optimizer' ),
                 implode( ', ', $formats )
             );
@@ -1185,7 +1081,6 @@ function ngio_get_server_capabilities() {
 
         echo '<div class="ngio-media-col" data-attachment-id="' . esc_attr( $attachment_id_attr ) . '">';
 
-        // Üst kısım: New filesize + Original saving
         echo '<div class="ngio-media-col-main">';
 
         if ( $optimized ) {
@@ -1202,9 +1097,8 @@ function ngio_get_server_capabilities() {
             echo '<span class="ngio-media-col-notice">' . esc_html__( 'Not optimized yet', 'nextgen-image-optimizer' ) . '</span>';
         }
 
-        echo '</div>'; // .ngio-media-col-main
+        echo '</div>';
 
-        // Aksiyonlar: Re-optimize, View details, Restore original
         echo '<div class="ngio-media-col-actions">';
         echo '<button type="button" class="button-link ngio-media-reoptimize" data-attachment-id="' . esc_attr( $attachment_id_attr ) . '">';
         esc_html_e( 'Re-optimize', 'nextgen-image-optimizer' );
@@ -1221,9 +1115,8 @@ function ngio_get_server_capabilities() {
         }
 
         echo '<span class="spinner ngio-media-spinner"></span>';
-        echo '</div>'; // .ngio-media-col-actions
+        echo '</div>';
 
-        // Detay paneli (Imagify "View Details" gibi)
         if ( $optimized ) {
             echo '<div class="ngio-media-details">';
             echo '<div class="ngio-media-details-inner">';
@@ -1238,6 +1131,6 @@ function ngio_get_server_capabilities() {
 
         echo '<div class="ngio-media-col-status" id="ngio-media-status-' . esc_attr( $attachment_id_attr ) . '"></div>';
 
-        echo '</div>'; // .ngio-media-col
+        echo '</div>';
     }
 }

@@ -1,7 +1,4 @@
 <?php
-/**
- * Bulk optimization screen for NextGen Image Optimizer.
- */
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
@@ -9,18 +6,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class NGIO_Bulk {
 
-    /**
-     * Constructor.
-     */
     public function __construct() {
         add_action( 'admin_menu', array( $this, 'add_bulk_page' ) );
         add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_assets' ) );
         add_action( 'wp_ajax_ngio_bulk_optimize', array( $this, 'ajax_bulk_optimize' ) );
     }
 
-    /**
-     * Add bulk page under Media.
-     */
     public function add_bulk_page() {
         add_media_page(
             __( 'Bulk Optimization (NGIO)', 'nextgen-image-optimizer' ),
@@ -31,11 +22,6 @@ class NGIO_Bulk {
         );
     }
 
-    /**
-     * Enqueue assets on bulk page.
-     *
-     * @param string $hook Current admin page.
-     */
     public function enqueue_assets( $hook ) {
         if ( 'media_page_ngio-bulk' !== $hook ) {
             return;
@@ -64,25 +50,17 @@ class NGIO_Bulk {
             array(
                 'ajaxUrl'        => admin_url( 'admin-ajax.php' ),
                 'nonce'          => wp_create_nonce( 'ngio_bulk_optimize' ),
-                // Bulk run için toplam işlenecek tahmini görsel sayısı.
                 'estimatedTotal' => $overview['total_images'],
-                // Progress metni.
                 'textStatus'     => __( 'Processed %processed% of %total% images (%percent%% of this run).', 'nextgen-image-optimizer' ),
                 'textStarting'   => __( 'Starting bulk optimization…', 'nextgen-image-optimizer' ),
                 'textDone'       => __( 'Bulk optimization finished.', 'nextgen-image-optimizer' ),
                 'textError'      => __( 'An error occurred during the bulk optimization.', 'nextgen-image-optimizer' ),
                 'textRestart'    => __( 'Run again', 'nextgen-image-optimizer' ),
-                // Donut için global “space saved” yüzdesi.
                 'savingPercent'  => $overview['saving_percent'],
             )
         );
     }
 
-    /**
-     * Compute global overview stats from attachment metadata.
-     *
-     * @return array
-     */
     protected function get_overview_stats() {
         $stats = array(
             'total_images'      => 0,
@@ -97,7 +75,6 @@ class NGIO_Bulk {
             'saved_human'       => '0 B',
         );
 
-        // Toplam dönüştürülebilir görsel sayısı (jpeg/jpg/png).
         if ( function_exists( 'wp_count_attachments' ) ) {
             $counts = wp_count_attachments();
 
@@ -114,7 +91,6 @@ class NGIO_Bulk {
             $stats['total_images'] = $jpeg + $png;
         }
 
-        // Optimize edilmiş görseller ve boyut kazancı.
         $query = new WP_Query(
             array(
                 'post_type'              => 'attachment',
@@ -156,10 +132,8 @@ class NGIO_Bulk {
             $stats['saving_percent'] = (int) round( ( $stats['bytes_saved'] / $stats['original_bytes'] ) * 100 );
         }
 
-        // Optimize edilmemiş kaç görsel kaldı?
         $stats['remaining_images'] = max( 0, $stats['total_images'] - $stats['optimized_images'] );
 
-        // İnsan okunur format.
         if ( function_exists( 'size_format' ) ) {
             $stats['original_human']  = size_format( $stats['original_bytes'], 2 );
             $stats['optimized_human'] = size_format( $stats['nextgen_bytes'], 2 );
@@ -169,9 +143,6 @@ class NGIO_Bulk {
         return $stats;
     }
 
-    /**
-     * Render bulk page.
-     */
     public function render_page() {
         if ( ! current_user_can( 'manage_options' ) ) {
             return;
@@ -242,7 +213,6 @@ class NGIO_Bulk {
                     <p class="ngio-bulk-overview-note">
                         <?php
                         printf(
-                            /* translators: 1: saved human size, 2: percent, 3: original size */
                             esc_html__( 'You\'ve already saved %1$s (%2$d%% of %3$s) across optimized images.', 'nextgen-image-optimizer' ),
                             esc_html( $overview['saved_human'] ),
                             (int) $overview['saving_percent'],
@@ -291,9 +261,6 @@ class NGIO_Bulk {
         <?php
     }
 
-    /**
-     * AJAX handler for bulk optimization.
-     */
     public function ajax_bulk_optimize() {
     check_ajax_referer( 'ngio_bulk_optimize', 'nonce' );
 
@@ -307,7 +274,6 @@ class NGIO_Bulk {
 
     $page = isset( $_POST['page'] ) ? max( 1, intval( $_POST['page'] ) ) : 1;
 
-    // Küçük batch'ler; ilerleyiş daha canlı görünsün.
     $per_page = (int) apply_filters( 'ngio_bulk_batch_size', 4 );
     if ( $per_page < 1 ) {
         $per_page = 4;
@@ -337,7 +303,6 @@ class NGIO_Bulk {
     }
 
     $converter = new NGIO_Converter();
-    // BURASI ÖNEMLİ: yeniden encode et.
     $converter->set_force_convert( true );
 
     $processed = 0;

@@ -16,9 +16,6 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-/**
- * Sabitler
- */
 if ( ! defined( 'NGIO_VERSION' ) ) {
     define( 'NGIO_VERSION', '0.1.0' );
 }
@@ -35,9 +32,6 @@ if ( ! defined( 'NGIO_PLUGIN_URL' ) ) {
     define( 'NGIO_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 }
 
-/**
- * Dil dosyalarını yükle
- */
 function ngio_load_textdomain() {
     load_plugin_textdomain(
         'nextgen-image-optimizer',
@@ -47,11 +41,7 @@ function ngio_load_textdomain() {
 }
 add_action( 'plugins_loaded', 'ngio_load_textdomain' );
 
-/**
- * Ana bootstrap
- */
 function ngio_bootstrap() {
-    // Sınıf dosyalarını dahil et.
     if ( file_exists( NGIO_PLUGIN_DIR . 'includes/class-ngio-converter.php' ) ) {
         require_once NGIO_PLUGIN_DIR . 'includes/class-ngio-converter.php';
     }
@@ -68,7 +58,6 @@ function ngio_bootstrap() {
         require_once NGIO_PLUGIN_DIR . 'includes/class-ngio-frontend.php';
     }
 
-    // Sınıflar gerçekten varsa instance oluştur.
     if ( class_exists( 'NGIO_Converter' ) ) {
         $GLOBALS['ngio_converter'] = new NGIO_Converter();
     }

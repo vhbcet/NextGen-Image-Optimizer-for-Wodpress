@@ -1,10 +1,4 @@
 <?php
-/**
- * Frontend integration for NextGen Image Optimizer.
- *
- * - Wraps images in <picture> with AVIF / WebP <source> when available
- * - Hooks into wp_get_attachment_image, post_thumbnail_html and the_content
- */
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
@@ -12,35 +6,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class NGIO_Frontend {
 
-    /**
-     * @var array
-     */
     protected $settings = array();
 
-    /**
-     * Constructor.
-     */
     public function __construct() {
         $this->settings = $this->get_settings();
 
-        // Frontend <picture> entegrasyonu kapalı ise hiçbir hook eklemeyelim.
         if ( empty( $this->settings['enable_picture'] ) ) {
             return;
         }
 
-        // Çekirdek WP image çıktıları.
         add_filter( 'wp_get_attachment_image', array( $this, 'filter_attachment_image_html' ), 20, 5 );
         add_filter( 'post_thumbnail_html', array( $this, 'filter_post_thumbnail_html' ), 20, 5 );
 
-        // İçerikteki <img> etiketleri (hem wp-image-123 sınıflı, hem de sadece src ile eklenmişler).
         add_filter( 'the_content', array( $this, 'filter_content_images' ), 20 );
     }
 
-    /**
-     * Settings'i basit haliyle çek.
-     *
-     * @return array
-     */
     protected function get_settings() {
         $defaults = array(
             'enable_picture' => 1,
@@ -62,16 +42,10 @@ class NGIO_Frontend {
         return $settings;
     }
 
-    /**
-     * wp_get_attachment_image filtresi.
-     */
     public function filter_attachment_image_html( $html, $attachment_id, $size, $icon, $attr ) {
         return $this->build_picture_markup( $html, $attachment_id );
     }
 
-    /**
-     * post_thumbnail_html filtresi.
-     */
     public function filter_post_thumbnail_html( $html, $post_id, $post_thumbnail_id, $size, $attr ) {
         if ( ! $post_thumbnail_id ) {
             return $html;
@@ -80,12 +54,6 @@ class NGIO_Frontend {
         return $this->build_picture_markup( $html, $post_thumbnail_id );
     }
 
-    /**
-     * the_content filtresi:
-     * - wp-image-123 sınıflı img'leri bulur
-     * - sınıf yoksa src URL'sinden attachment ID çıkarmaya çalışır
-     * - ID bulunursa ilgili <img> tag'ini <picture> ile değiştirir
-     */
     public function filter_content_images( $content ) {
         if ( false === strpos( $content, '<img' ) ) {
             return $content;
@@ -98,22 +66,18 @@ class NGIO_Frontend {
             function ( $matches ) use ( $self ) {
                 $img_html = $matches[0];
 
-                // Zaten bizim picture çıktımızın içinde ise tekrar dokunmayalım.
                 if ( false !== stripos( $img_html, 'ngio-picture' ) ) {
                     return $img_html;
                 }
 
                 $attachment_id = 0;
 
-                // 1) Önce wp-image-123 sınıfını dene.
                 if ( preg_match( '/wp-image-(\d+)/i', $img_html, $id_match ) ) {
                     $attachment_id = (int) $id_match[1];
 
-                // 2) Yoksa src="" içinden attachment_url_to_postid ile çözmeye çalış.
                 } elseif ( preg_match( '/src=["\']([^"\']+)["\']/i', $img_html, $src_match ) ) {
                     $src = $src_match[1];
 
-                    // Protokolsüz veya relatif URL'leri normalize et.
                     if ( 0 === strpos( $src, '//' ) ) {
                         $src = ( is_ssl() ? 'https:' : 'http:' ) . $src;
                     } elseif ( 0 === strpos( $src, '/' ) && 0 !== strpos( $src, 'http' ) ) {
@@ -135,20 +99,11 @@ class NGIO_Frontend {
         return $content;
     }
 
-    /**
-     * Verilen <img> HTML'ini, mevcutsa AVIF/WEBP source'ları olan <picture> ile sarar.
-     *
-     * @param string $html
-     * @param int    $attachment_id
-     *
-     * @return string
-     */
     protected function build_picture_markup( $html, $attachment_id ) {
         if ( empty( $this->settings['enable_picture'] ) ) {
             return $html;
         }
 
-        // Zaten <picture> ile sarılıysa bir daha dokunma.
         if ( false !== stripos( $html, '<picture' ) ) {
             return $html;
         }
@@ -165,16 +120,13 @@ class NGIO_Frontend {
 
         $meta = wp_get_attachment_metadata( $attachment_id );
         if ( empty( $meta ) || ! is_array( $meta ) || empty( $meta['ngio'] ) || empty( $meta['ngio']['formats'] ) ) {
-            // Bu görsel için henüz next-gen üretilmemiş.
             return $html;
         }
 
         $formats = (array) $meta['ngio']['formats'];
 
-        // Eski meta içinde hem webp hem avif olabilir; ayarlarla uyumlu son listeyi çıkaralım.
         $has_webp = in_array( 'webp', $formats, true ) && ! empty( $this->settings['enable_webp'] );
 
-        // AVIF sadece WebP kapalıysa kullanılacak:
         $has_avif = in_array( 'avif', $formats, true )
             && ! empty( $this->settings['enable_avif'] )
             && empty( $this->settings['enable_webp'] );
@@ -190,7 +142,6 @@ class NGIO_Frontend {
             return $html;
         }
 
-        // <img src="..."> içindeki src'yi çekelim.
         if ( ! preg_match( '/<img[^>]+src=["\']([^"\']+)["\']/i', $html, $m ) ) {
             return $html;
         }

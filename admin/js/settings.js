@@ -18,7 +18,6 @@ jQuery(function ($) {
         }
     }
 
-    // İlk yüklemede: eskiden ikisi birden açıksa sadece WebP açık kalsın
     if ($webp.is(':checked') && $avif.is(':checked')) {
         $avif.prop('checked', false);
     }

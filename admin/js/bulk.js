@@ -11,7 +11,6 @@ jQuery(function ($) {
     var $startBtn = $('#ngio-bulk-start');
     var $activity = $('#ngio-bulk-activity');
 
-    // Donut elemanları (global space saved için)
     var $ring = $('#ngio-bulk-ring');
     var $ringValue = $('#ngio-bulk-ring-value');
 
@@ -25,7 +24,6 @@ jQuery(function ($) {
         }
     }
 
-    // Sayfa ilk açıldığında, PHP'den gelen global "space saved" yüzdesini uygula.
     (function initialiseRingFromMeta() {
         var initial = parseInt(ngioBulk.savingPercent || 0, 10);
         if (isNaN(initial) || initial < 0) {
@@ -71,7 +69,6 @@ jQuery(function ($) {
             );
         }
 
-        // ÖNEMLİ: Donut artık global meta'yı temsil ediyor, burada DEĞİŞTİRMİYORUZ.
     }
 
     function appendActivity(items) {
@@ -106,7 +103,6 @@ jQuery(function ($) {
             $activity.empty();
         }
 
-        // Donut'u sıfırlamıyoruz; global istatistik kalsın.
     }
 
     function runBatch() {

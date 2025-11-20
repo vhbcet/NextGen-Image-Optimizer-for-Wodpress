@@ -80,7 +80,7 @@ jQuery(function ($) {
                 $spinner.removeClass('is-active');
                 $btn.prop('disabled', false);
             });
-    });    // Detay panelini aç / kapa (Imagify View details gibi).
+    });
     $(document).on('click', '.ngio-media-details-toggle', function (e) {
         e.preventDefault();
 
@@ -103,7 +103,6 @@ jQuery(function ($) {
         }
     });
 
-    // Restore original (WebP/AVIF kopyalarını sil).
     $(document).on('click', '.ngio-media-restore', function (e) {
         e.preventDefault();
 
@@ -149,12 +148,10 @@ jQuery(function ($) {
                 var data = response.data || {};
                 var msg  = data.message || cfg.textDone;
 
-                // Üst kısmı "Not optimized yet" haline getir.
                 $col.find('.ngio-media-col-main').html(
                     '<span class="ngio-media-col-notice">' + cfg.textNotOptimized + '</span>'
                 );
 
-                // Detay panelini ve restore/detay butonlarını kapat.
                 $col.find('.ngio-media-details').slideUp(150);
                 $col.find('.ngio-media-details-toggle').remove();
                 $btn.remove();

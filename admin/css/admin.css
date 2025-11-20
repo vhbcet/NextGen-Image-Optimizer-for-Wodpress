@@ -1,4 +1,3 @@
-/* ===== Base layout & font ===== */
 
 .ngio-settings-wrap,
 .ngio-bulk-wrap {
@@ -7,12 +6,10 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
-/* Hero wrapper sits under WP notices */
 body.settings_page_ngio-settings .ngio-settings-wrap {
     background: transparent;
 }
 
-/* ===== Hero header ===== */
 
 .ngio-hero {
     margin: 24px 0 24px;
@@ -66,7 +63,6 @@ body.settings_page_ngio-settings .ngio-settings-wrap {
     transform: translateY(0.5px);
 }
 
-/* Stronger contrast for hero text */
 .ngio-hero-text {
     color: #0f172a;
 }
@@ -160,7 +156,6 @@ body.settings_page_ngio-settings .ngio-settings-wrap {
     border-radius: 999px !important;
 }
 
-/* ===== Settings grid & cards ===== */
 
 .ngio-settings-form {
     margin-top: 0;
@@ -246,7 +241,6 @@ body.settings_page_ngio-settings .ngio-settings-wrap {
     color: #6b7280;
 }
 
-/* ===== Settings blocks inside main card ===== */
 
 .ngio-settings-block {
     margin-bottom: 16px;
@@ -297,7 +291,6 @@ body.settings_page_ngio-settings .ngio-settings-wrap {
     padding: 12px 14px;
 }
 
-/* Options table inside blocks */
 
 .ngio-options-table {
     width: 100%;
@@ -340,7 +333,6 @@ body.settings_page_ngio-settings .ngio-settings-wrap {
     text-align: left;
 }
 
-/* ===== Toggle switches ===== */
 
 .ngio-toggle {
     display: inline-flex;
@@ -394,7 +386,6 @@ body.settings_page_ngio-settings .ngio-settings-wrap {
     font-weight: 500;
 }
 
-/* ===== Quality slider + number ===== */
 
 .ngio-quality-range-wrap {
     display: inline-flex;
@@ -420,7 +411,6 @@ body.settings_page_ngio-settings .ngio-settings-wrap {
     color: #6b7280;
 }
 
-/* ===== Server status / inner table ===== */
 
 .ngio-inner-table {
     background: #f9fafb;
@@ -463,7 +453,6 @@ body.settings_page_ngio-settings .ngio-settings-wrap {
     background: rgba(34, 113, 177, 0.03);
 }
 
-/* Capability badges */
 
 .ngio-cap {
     display: inline-flex;
@@ -486,7 +475,6 @@ body.settings_page_ngio-settings .ngio-settings-wrap {
     border: 1px solid rgba(239, 68, 68, 0.4);
 }
 
-/* ===== Media overview small cards ===== */
 
 .ngio-media-summary-grid {
     display: grid;
@@ -518,7 +506,6 @@ body.settings_page_ngio-settings .ngio-settings-wrap {
     margin-top: 10px;
 }
 
-/* ===== Submit row ===== */
 
 .ngio-submit-row {
     display: flex;
@@ -537,7 +524,6 @@ body.settings_page_ngio-settings .ngio-settings-wrap {
     color: #6b7280;
 }
 
-/* ===== Bulk header (Imagify-like top strip) ===== */
 
 .ngio-bulk-header {
     margin: 20px 0 16px;
@@ -555,8 +541,8 @@ body.settings_page_ngio-settings .ngio-settings-wrap {
     margin: 0 0 4px;
     font-size: 20px;
     font-weight: 600;
-    color: #f9fafb;               /* net beyaz */
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35); /* koyu zeminlerde de net görünür */
+    color: #f9fafb;               
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35); 
 }
 
 .ngio-bulk-header-left p {
@@ -570,7 +556,6 @@ body.settings_page_ngio-settings .ngio-settings-wrap {
     border-radius: 999px;
 }
 
-/* ===== Bulk overview grid + donut ===== */
 
 .ngio-bulk-overview-grid {
     display: flex;
@@ -659,7 +644,6 @@ body.settings_page_ngio-settings .ngio-settings-wrap {
     color: #6b7280;
 }
 
-/* Side card tips */
 
 .ngio-bulk-side-card h2 {
     margin: 0 0 6px;
@@ -677,7 +661,6 @@ body.settings_page_ngio-settings .ngio-settings-wrap {
     margin-bottom: 4px;
 }
 
-/* Bulk main card & progress */
 
 .ngio-bulk-card {
     margin-top: 20px;
@@ -780,13 +763,11 @@ body.settings_page_ngio-settings .ngio-settings-wrap {
     margin-bottom: 4px;
 }
 
-/* ===== Frontend picture wrapper (tiny) ===== */
 
 .ngio-picture {
     display: inline-block;
 }
 
-/* ===== Media Library column (NextGen) ===== */
 
 .column-ngio {
     width: 240px;
@@ -815,11 +796,9 @@ body.settings_page_ngio-settings .ngio-settings-wrap {
 }
 
 .ngio-media-col-value-size {
-    /* same class name used in JS to update */
 }
 
 .ngio-media-col-value-saved {
-    /* same class name used in JS to update */
 }
 
 .ngio-media-col-saved {
@@ -857,7 +836,6 @@ body.settings_page_ngio-settings .ngio-settings-wrap {
     color: #dc2626;
 }
 
-/* Details panel */
 
 .ngio-media-details {
     margin-top: 4px;
@@ -884,7 +862,6 @@ body.settings_page_ngio-settings .ngio-settings-wrap {
     font-weight: 500;
 }
 
-/* ===== Single attachment box ===== */
 
 .misc-pub-ngio-optimize {
     border-top: 1px solid #e5e7eb;
@@ -897,7 +874,6 @@ body.settings_page_ngio-settings .ngio-settings-wrap {
     margin-bottom: 4px;
 }
 
-/* ===== Responsive tweaks ===== */
 
 @media (max-width: 960px) {
     .ngio-hero {
