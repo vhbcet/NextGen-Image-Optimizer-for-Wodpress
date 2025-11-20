@@ -32,21 +32,26 @@ if ( ! defined( 'NGIO_PLUGIN_URL' ) ) {
     define( 'NGIO_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 }
 
-add_action( 'plugins_loaded', 'ngio_load_textdomain' );
-
+/**
+ * Bootstrap: load required classes and init singletons.
+ */
 function ngio_bootstrap() {
+    // Converter
     if ( file_exists( NGIO_PLUGIN_DIR . 'includes/class-ngio-converter.php' ) ) {
         require_once NGIO_PLUGIN_DIR . 'includes/class-ngio-converter.php';
     }
 
+    // Admin settings UI
     if ( file_exists( NGIO_PLUGIN_DIR . 'admin/class-ngio-admin.php' ) ) {
         require_once NGIO_PLUGIN_DIR . 'admin/class-ngio-admin.php';
     }
 
+    // Bulk optimizer
     if ( file_exists( NGIO_PLUGIN_DIR . 'admin/class-ngio-bulk.php' ) ) {
         require_once NGIO_PLUGIN_DIR . 'admin/class-ngio-bulk.php';
     }
 
+    // Frontend <picture> integration
     if ( file_exists( NGIO_PLUGIN_DIR . 'includes/class-ngio-frontend.php' ) ) {
         require_once NGIO_PLUGIN_DIR . 'includes/class-ngio-frontend.php';
     }
@@ -55,12 +60,14 @@ function ngio_bootstrap() {
         $GLOBALS['ngio_converter'] = new NGIO_Converter();
     }
 
-    if ( class_exists( 'NGIO_Admin' ) ) {
-        $GLOBALS['ngio_admin'] = new NGIO_Admin();
-    }
+    if ( is_admin() ) {
+        if ( class_exists( 'NGIO_Admin' ) ) {
+            $GLOBALS['ngio_admin'] = new NGIO_Admin();
+        }
 
-    if ( class_exists( 'NGIO_Bulk' ) ) {
-        $GLOBALS['ngio_bulk'] = new NGIO_Bulk();
+        if ( class_exists( 'NGIO_Bulk' ) ) {
+            $GLOBALS['ngio_bulk'] = new NGIO_Bulk();
+        }
     }
 
     if ( class_exists( 'NGIO_Frontend' ) ) {
