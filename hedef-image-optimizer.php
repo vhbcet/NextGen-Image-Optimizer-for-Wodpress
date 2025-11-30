@@ -8,20 +8,13 @@
  * Author URI:        https://hedefhosting.com.tr/
  * License:           GPLv2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       hedef-image-optimizer
+ * Text Domain:       hedef-image-optimizer-webp-avif
  * Domain Path:       /languages
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
-
-function ngio_load_textdomain() {
-    load_plugin_textdomain( 'hedef-image-optimizer-webp-avif', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
-}
-
-add_action( 'init', 'ngio_load_textdomain' );
-
 
 if ( ! defined( 'NGIO_VERSION' ) ) {
     define( 'NGIO_VERSION', '0.1.0' );
