@@ -354,7 +354,7 @@ function ngio_get_server_capabilities() {
             <div class="ngio-hero">
                 <div class="ngio-hero-left">
                     <div class="ngio-hero-logo">
-                        <span>NGIO</span>
+                        <span>HIO</span>
                     </div>
                     <div class="ngio-hero-text">
                         <h1><?php esc_html_e( 'Hedef Image Optimizer', 'hedef-image-optimizer' ); ?></h1>
