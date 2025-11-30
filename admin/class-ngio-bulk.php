@@ -14,8 +14,8 @@ class NGIO_Bulk {
 
     public function add_bulk_page() {
         add_media_page(
-            __( 'Bulk Optimization (NGIO)', 'nextgen-image-optimizer' ),
-            __( 'Bulk Optimize (NGIO)', 'nextgen-image-optimizer' ),
+            __( 'Bulk Optimization (NGIO)', 'hedef-image-optimizer' ),
+            __( 'Bulk Optimize (NGIO)', 'hedef-image-optimizer' ),
             'manage_options',
             'ngio-bulk',
             array( $this, 'render_page' )
@@ -51,11 +51,11 @@ class NGIO_Bulk {
                 'ajaxUrl'        => admin_url( 'admin-ajax.php' ),
                 'nonce'          => wp_create_nonce( 'ngio_bulk_optimize' ),
                 'estimatedTotal' => $overview['total_images'],
-                'textStatus'     => __( 'Processed %processed% of %total% images (%percent%% of this run).', 'nextgen-image-optimizer' ),
-                'textStarting'   => __( 'Starting bulk optimization…', 'nextgen-image-optimizer' ),
-                'textDone'       => __( 'Bulk optimization finished.', 'nextgen-image-optimizer' ),
-                'textError'      => __( 'An error occurred during the bulk optimization.', 'nextgen-image-optimizer' ),
-                'textRestart'    => __( 'Run again', 'nextgen-image-optimizer' ),
+                'textStatus'     => __( 'Processed %processed% of %total% images (%percent%% of this run).', 'hedef-image-optimizer' ),
+                'textStarting'   => __( 'Starting bulk optimization…', 'hedef-image-optimizer' ),
+                'textDone'       => __( 'Bulk optimization finished.', 'hedef-image-optimizer' ),
+                'textError'      => __( 'An error occurred during the bulk optimization.', 'hedef-image-optimizer' ),
+                'textRestart'    => __( 'Run again', 'hedef-image-optimizer' ),
                 'savingPercent'  => $overview['saving_percent'],
             )
         );
@@ -153,19 +153,19 @@ class NGIO_Bulk {
         <div class="wrap ngio-bulk-wrap">
             <div class="ngio-bulk-header">
                 <div class="ngio-bulk-header-left">
-                    <h1><?php esc_html_e( 'Bulk Optimization', 'nextgen-image-optimizer' ); ?></h1>
-                    <p><?php esc_html_e( 'Scan your media library, generate WebP/AVIF copies in batch and see exactly how much space you saved.', 'nextgen-image-optimizer' ); ?></p>
+                    <h1><?php esc_html_e( 'Bulk Optimization', 'hedef-image-optimizer' ); ?></h1>
+                    <p><?php esc_html_e( 'Scan your media library, generate WebP/AVIF copies in batch and see exactly how much space you saved.', 'hedef-image-optimizer' ); ?></p>
                 </div>
                 <div class="ngio-bulk-header-right">
                     <a href="<?php echo esc_url( admin_url( 'upload.php' ) ); ?>" class="button">
-                        <?php esc_html_e( 'Open Media Library', 'nextgen-image-optimizer' ); ?>
+                        <?php esc_html_e( 'Open Media Library', 'hedef-image-optimizer' ); ?>
                     </a>
                 </div>
             </div>
 
             <div class="ngio-bulk-overview-grid">
                 <section class="ngio-card ngio-bulk-overview-card">
-                    <h2 class="ngio-bulk-card-title"><?php esc_html_e( 'Overview', 'nextgen-image-optimizer' ); ?></h2>
+                    <h2 class="ngio-bulk-card-title"><?php esc_html_e( 'Overview', 'hedef-image-optimizer' ); ?></h2>
 
                     <div class="ngio-bulk-overview-main">
                         <div class="ngio-bulk-ring-wrap">
@@ -183,7 +183,7 @@ class NGIO_Bulk {
                         <div class="ngio-bulk-overview-stats">
                             <div class="ngio-bulk-overview-stat">
                                 <span class="ngio-bulk-overview-stat-label">
-                                    <?php esc_html_e( 'Total convertible images', 'nextgen-image-optimizer' ); ?>
+                                    <?php esc_html_e( 'Total convertible images', 'hedef-image-optimizer' ); ?>
                                 </span>
                                 <span class="ngio-bulk-overview-stat-value">
                                     <?php echo esc_html( number_format_i18n( $overview['total_images'] ) ); ?>
@@ -192,7 +192,7 @@ class NGIO_Bulk {
 
                             <div class="ngio-bulk-overview-stat">
                                 <span class="ngio-bulk-overview-stat-label">
-                                    <?php esc_html_e( 'Optimized images', 'nextgen-image-optimizer' ); ?>
+                                    <?php esc_html_e( 'Optimized images', 'hedef-image-optimizer' ); ?>
                                 </span>
                                 <span class="ngio-bulk-overview-stat-value">
                                     <?php echo esc_html( number_format_i18n( $overview['optimized_images'] ) ); ?>
@@ -201,7 +201,7 @@ class NGIO_Bulk {
 
                             <div class="ngio-bulk-overview-stat">
                                 <span class="ngio-bulk-overview-stat-label">
-                                    <?php esc_html_e( 'Images to optimize', 'nextgen-image-optimizer' ); ?>
+                                    <?php esc_html_e( 'Images to optimize', 'hedef-image-optimizer' ); ?>
                                 </span>
                                 <span class="ngio-bulk-overview-stat-value">
                                     <?php echo esc_html( number_format_i18n( $overview['remaining_images'] ) ); ?>
@@ -213,7 +213,7 @@ class NGIO_Bulk {
                     <p class="ngio-bulk-overview-note">
                         <?php
                         printf(
-                            esc_html__( 'You\'ve already saved %1$s (%2$d%% of %3$s) across optimized images.', 'nextgen-image-optimizer' ),
+                            esc_html__( 'You\'ve already saved %1$s (%2$d%% of %3$s) across optimized images.', 'hedef-image-optimizer' ),
                             esc_html( $overview['saved_human'] ),
                             (int) $overview['saving_percent'],
                             esc_html( $overview['original_human'] )
@@ -223,26 +223,26 @@ class NGIO_Bulk {
                 </section>
 
                 <aside class="ngio-card ngio-bulk-side-card">
-                    <h2><?php esc_html_e( 'Tips', 'nextgen-image-optimizer' ); ?></h2>
+                    <h2><?php esc_html_e( 'Tips', 'hedef-image-optimizer' ); ?></h2>
                     <ul class="ngio-bulk-tips">
-                        <li><?php esc_html_e( 'Run the bulk optimizer after importing a large batch of photos or a new theme demo.', 'nextgen-image-optimizer' ); ?></li>
-                        <li><?php esc_html_e( 'Keep “Optimize on upload” enabled so new uploads are always covered.', 'nextgen-image-optimizer' ); ?></li>
-                        <li><?php esc_html_e( 'If you change the quality or resize settings, run a new bulk pass to refresh existing copies.', 'nextgen-image-optimizer' ); ?></li>
+                        <li><?php esc_html_e( 'Run the bulk optimizer after importing a large batch of photos or a new theme demo.', 'hedef-image-optimizer' ); ?></li>
+                        <li><?php esc_html_e( 'Keep “Optimize on upload” enabled so new uploads are always covered.', 'hedef-image-optimizer' ); ?></li>
+                        <li><?php esc_html_e( 'If you change the quality or resize settings, run a new bulk pass to refresh existing copies.', 'hedef-image-optimizer' ); ?></li>
                     </ul>
                 </aside>
             </div>
 
             <section class="ngio-bulk-card">
                 <h2 class="ngio-bulk-card-title">
-                    <?php esc_html_e( 'Optimize your media files', 'nextgen-image-optimizer' ); ?>
+                    <?php esc_html_e( 'Optimize your media files', 'hedef-image-optimizer' ); ?>
                 </h2>
                 <p class="description">
-                    <?php esc_html_e( 'Click the button below to start scanning your media library and generating missing WebP/AVIF versions. You can safely navigate away; the process runs in small batches.', 'nextgen-image-optimizer' ); ?>
+                    <?php esc_html_e( 'Click the button below to start scanning your media library and generating missing WebP/AVIF versions. You can safely navigate away; the process runs in small batches.', 'hedef-image-optimizer' ); ?>
                 </p>
 
                 <div class="ngio-bulk-controls">
                     <button type="button" class="button button-primary" id="ngio-bulk-start">
-                        <?php esc_html_e( 'Optimize all images', 'nextgen-image-optimizer' ); ?>
+                        <?php esc_html_e( 'Optimize all images', 'hedef-image-optimizer' ); ?>
                     </button>
 
                     <span class="spinner" id="ngio-bulk-spinner"></span>
@@ -267,7 +267,7 @@ class NGIO_Bulk {
     if ( ! current_user_can( 'manage_options' ) ) {
         wp_send_json_error(
             array(
-                'message' => __( 'You are not allowed to run bulk optimization.', 'nextgen-image-optimizer' ),
+                'message' => __( 'You are not allowed to run bulk optimization.', 'hedef-image-optimizer' ),
             )
         );
     }
