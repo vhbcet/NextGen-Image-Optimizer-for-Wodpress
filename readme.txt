@@ -1,7 +1,7 @@
 === Hedef Image Optimizer — WebP & AVIF ===
 Contributors: hedefhosting
 Donate link: https://hedefhosting.com.tr/
-Tags: image optimization, webp, avif, performance, images, responsive images
+Tags: image optimizer, webp, avif, performance, media
 Requires at least: 6.5
 Tested up to: 6.8
 Requires PHP: 8.1
