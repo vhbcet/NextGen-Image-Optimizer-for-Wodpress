@@ -382,10 +382,13 @@ function ngio_get_server_capabilities() {
                             </span>
                         </div><p class="ngio-hero-madeby">
     <?php
-    printf(
+    $made_by_text = sprintf(
+        /* translators: %1$s: link to the Hedef Hosting website. */
         __( 'This plugin is built by %1$s and offered completely free. If you spot something missing or have ideas to improve it, feel free to email us at support@hedefhosting.com.tr', 'hedef-image-optimizer-webp-avif' ),
         '<a href="https://hedefhosting.com.tr/" target="_blank" rel="noopener noreferrer">Hedef Hosting</a>'
     );
+
+    echo wp_kses_post( $made_by_text );
     ?>
 </p>
                     </div>
@@ -952,12 +955,12 @@ function ngio_get_server_capabilities() {
                 );
 
                 foreach ( $patterns as $pattern ) {
-                    foreach ( glob( $pattern ) as $candidate ) {
-                        if ( is_file( $candidate ) ) {
-                            @unlink( $candidate );
-                        }
-                    }
+                foreach ( glob( $pattern ) as $candidate ) {
+                if ( is_file( $candidate ) ) {
+                wp_delete_file( $candidate );
                 }
+            }
+        }
             }
         }
 
@@ -1071,6 +1074,7 @@ function ngio_get_server_capabilities() {
         }
 
         if ( $optimized && $formats ) {
+                /* translators: %s: comma-separated list of generated formats, e.g. WebP, AVIF. */
             $nextgen_status = sprintf(
                 __( 'Yes (%s)', 'hedef-image-optimizer-webp-avif' ),
                 implode( ', ', $formats )
@@ -1110,7 +1114,7 @@ function ngio_get_server_capabilities() {
 
         if ( $optimized ) {
             echo '<button type="button" class="button-link ngio-media-details-toggle" data-open="0">';
-            esc_html_e( 'View details', 'hedeef-image-optimizer' );
+            esc_html_e( 'View details', 'hedef-image-optimizer-webp-avif' );
             echo '</button>';
 
             echo '<button type="button" class="button-link ngio-media-restore" data-attachment-id="' . esc_attr( $attachment_id_attr ) . '">';
