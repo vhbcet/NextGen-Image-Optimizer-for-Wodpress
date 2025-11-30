@@ -1077,8 +1077,8 @@ printf(
         }
 
 if ( $optimized && $formats ) {
-    /* translators: %s: comma-separated list of generated formats, e.g. WebP, AVIF. */
     $nextgen_status = sprintf(
+        /* translators: %s: comma-separated list of generated formats, e.g. WebP, AVIF. */
         __( 'Yes (%s)', 'hedef-image-optimizer-webp-avif' ),
         implode( ', ', $formats )
     );
