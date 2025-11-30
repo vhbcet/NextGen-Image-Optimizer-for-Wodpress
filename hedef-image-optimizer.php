@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       Hedef Image Optimizer
+ * Plugin Name:       Hedef Image Optimizer — WebP & AVIF
  * Plugin URI:        https://github.com/vhbcet/Hedef-Image-Optimizer-for-Wodpress
  * Description:       Convert JPEG and PNG images to modern WebP and AVIF formats on upload or in bulk, and optionally serve them using <picture> tags.
  * Version:           0.1.0
