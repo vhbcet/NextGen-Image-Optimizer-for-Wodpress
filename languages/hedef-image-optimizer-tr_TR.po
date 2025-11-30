@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: NextGen Image Optimizer 1.0.0\n"
+"Project-Id-Version: Hedef Image Optimizer 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-19 00:00+0000\n"
 "PO-Revision-Date: 2025-11-19 00:00+0000\n"
@@ -17,11 +17,11 @@ msgstr ""
 # GENEL / MENÜ / EKLENTİ METİNLERİ
 # =============================================================================
 
-msgid "NextGen Image Optimizer"
-msgstr "NextGen Görsel Optimizasyonu"
+msgid "Hedef Image Optimizer"
+msgstr "Hedef Görsel Optimizasyonu"
 
-msgid "NextGen Image Optimizer Settings"
-msgstr "NextGen Görsel Optimizasyon Ayarları"
+msgid "Hedef Image Optimizer Settings"
+msgstr "Hedef Görsel Optimizasyon Ayarları"
 
 msgid "Settings"
 msgstr "Ayarlar"
@@ -534,8 +534,8 @@ msgstr "Tekrar çalıştır"
 # MEDYA KÜTÜPHANESİ SÜTUNU / LİSTE GÖRÜNÜMÜ
 # =============================================================================
 
-msgid "NextGen"
-msgstr "NextGen"
+msgid "Optimizer"
+msgstr "Optimizasyon"
 
 msgid "Not optimized yet"
 msgstr "Henüz optimize edilmedi"
@@ -580,8 +580,8 @@ msgstr "Bilinmiyor"
 # TEKİL EKLER (ATTACHMENT) – METABOX / AYARLAR
 # =============================================================================
 
-msgid "NextGen optimization"
-msgstr "NextGen optimizasyonu"
+msgid "Optimizer summary"
+msgstr "Optimizasyon özeti"
 
 msgid "Optimize this image now"
 msgstr "Bu görseli şimdi optimize et"
