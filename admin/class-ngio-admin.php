@@ -372,10 +372,11 @@ function ngio_get_server_capabilities() {
                                 <strong><?php esc_html_e( 'Space saved', 'hedef-image-optimizer-webp-avif' ); ?></strong>
                                 <span>
                                     <?php
-                                    printf(
+                                        /* translators: %d: sampled saving percentage. */
+                                        printf(
                                         esc_html__( '%d%% (sampled)', 'hedef-image-optimizer-webp-avif' ),
                                         (int) $media_overview['saving_percent']
-                                    );
+                                        );
                                     ?>
                                 </span>
                             </span>
