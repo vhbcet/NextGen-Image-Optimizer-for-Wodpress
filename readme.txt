@@ -9,7 +9,8 @@ Stable tag: 0.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Convert JPEG and PNG images to modern WebP and AVIF formats on upload or in bulk, and optionally serve them using <picture> tags – with everything processed locally on your own server.
+Converts JPEG and PNG to modern WebP and AVIF formats, with bulk optimization and smart delivery.
+
 
 == Description ==
 
