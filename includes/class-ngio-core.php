@@ -63,6 +63,13 @@ class NGIO_Core {
             2
         );
 
+        add_action(
+            'delete_attachment',
+            array( $converter, 'handle_delete_attachment' ),
+            10,
+            1
+        );
+
         require_once NGIO_PLUGIN_DIR . 'includes/class-ngio-frontend.php';
         new NGIO_Frontend();
 
