@@ -4,6 +4,8 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
+if ( ! class_exists( 'NGIO_Converter' ) ) {
+
 class NGIO_Converter {
 
     protected $settings = array();
@@ -67,62 +69,6 @@ class NGIO_Converter {
                 $size_path = path_join( $base_dir, $size_data['file'] );
 
                 if ( $size_path ) {
-                    $paths[] = $size_path;
-                }
-            }
-        }
-
-        $formats = array( 'webp', 'avif' );
-
-        if ( ! empty( $meta['ngio']['formats'] ) && is_array( $meta['ngio']['formats'] ) ) {
-            $formats = array_values( array_unique( array_map( 'sanitize_key', $meta['ngio']['formats'] ) ) );
-        }
-
-        foreach ( array_unique( $paths ) as $path ) {
-            foreach ( $formats as $format ) {
-                $candidate = $path . '.' . $format;
-
-                if ( is_file( $candidate ) ) {
-                    wp_delete_file( $candidate );
-                }
-            }
-        }
-    }
-
-    public function handle_delete_attachment( $attachment_id ) {
-        self::remove_for_attachment( $attachment_id );
-    }
-
-    public static function remove_for_attachment( $attachment_id ) {
-        $mime = get_post_mime_type( $attachment_id );
-        if ( ! in_array( $mime, array( 'image/jpeg', 'image/jpg', 'image/png' ), true ) ) {
-            return;
-        }
-
-        $source_file = get_attached_file( $attachment_id );
-        if ( ! $source_file ) {
-            return;
-        }
-
-        $paths = array();
-
-        if ( file_exists( $source_file ) ) {
-            $paths[] = $source_file;
-        }
-
-        $meta = wp_get_attachment_metadata( $attachment_id );
-
-        if ( ! empty( $meta['sizes'] ) && is_array( $meta['sizes'] ) ) {
-            $base_dir = dirname( $source_file );
-
-            foreach ( $meta['sizes'] as $size_data ) {
-                if ( empty( $size_data['file'] ) ) {
-                    continue;
-                }
-
-                $size_path = path_join( $base_dir, $size_data['file'] );
-
-                if ( file_exists( $size_path ) ) {
                     $paths[] = $size_path;
                 }
             }
@@ -530,4 +476,6 @@ class NGIO_Converter {
 
         return (bool) $result;
     }
+}
+
 }
