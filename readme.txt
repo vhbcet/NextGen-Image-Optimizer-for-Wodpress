@@ -5,7 +5,7 @@ Tags: image optimizer, webp, avif, performance, media
 Requires at least: 6.5
 Tested up to: 6.9
 Requires PHP: 8.1
-Stable tag: 0.1.0
+Stable tag: 0.1.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -172,6 +172,10 @@ No. All conversions happen locally on your server. The plugin does not send your
 3. Media Library Optimizer column – per-image status, savings, and quick actions.
 
 == Changelog ==
+
+= 0.1.1 =
+
+* Prevent fatal errors by guarding the converter class against redeclaration when files are loaded multiple times.
 
 = 0.1.0 =
 
